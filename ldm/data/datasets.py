@@ -128,12 +128,12 @@ class LSUNChurchValidation(DatasetBase):
 
 class LSUNTowerTrain(DatasetBase):
     def __init__(self, **kwargs):
-        super().__init__(txt_file="data/tower_train.txt", data_root="../datasets/lsun_tower/train", **kwargs)
+        super().__init__(txt_file="data/CT/single slice COVID19 CT Data/train.txt", data_root="data/CT/single slice COVID19 CT Data", **kwargs)
 
 
 class LSUNTowerValidation(DatasetBase):
     def __init__(self, **kwargs):
-        super().__init__(txt_file="data/tower_val.txt", data_root="../datasets/lsun_tower/train", **kwargs)
+        super().__init__(txt_file="data/CT/single slice COVID19 CT Data/val.txt", data_root="data/CT/single slice COVID19 CT Data", **kwargs)
 
 class DIV2KBase(DatasetBase):
     def __init__(self, data_root, repeat=1, augment=False, **kwargs):

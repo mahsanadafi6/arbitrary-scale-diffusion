@@ -17,3 +17,8 @@ datasets
 scratch/
 taming
 log_images/
+/.idea/*
+/data/*
+/lsun/*
+/requirements.txt
+/important commands.txt
