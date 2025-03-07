@@ -10,8 +10,8 @@ model:
     cond_stage_key: image_lr
     image_size: 32
     channels: 32
-    inp_size: 128
-    default_output_size: 128
+    inp_size: 256
+    default_output_size: 256
     c_encode: True
     conditioning_key: concat
     concat_mode: True
@@ -34,20 +34,20 @@ model:
     first_stage_config:
       target: ldm.models.firststagemodel.FirstStageModel
       params:
-        ckpt_path: # first_stage_model checkpoint
+        ckpt_path: logs/2025-02-28T18-56-00_first_stage_sr_tower_16_32x32x32_256/checkpoints/epoch=000228.ckpt # first_stage_model checkpoint
         lossconfig:
           target: torch.nn.Identity
 
         ddconfig:
           double_z: True
           z_channels: 32
-          resolution: 128
+          resolution: 256
           in_channels: 3
           out_ch: 3
           ch: 128
           ch_mult: [ 1,2,4 ]  # num_down = len(ch_mult)-1
           num_res_blocks: 2
-          attn_resolutions: [16]
+          attn_resolutions: [32]
           dropout: 0.0
 
         liifconfig:
@@ -66,13 +66,13 @@ data:
     train:
       target: ldm.data.datasets.FFHQ
       params:
-        size: 128
-        lr_size: 16
+        size: 256
+        lr_size: 32
     validation:
       target: ldm.data.datasets.CelebAHQ
       params:
-        size: 128
-        lr_size: 16
+        size: 256
+        lr_size: 32
         first_k: 100
 
 lightning:
